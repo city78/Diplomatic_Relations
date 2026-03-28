@@ -531,4 +531,82 @@ input::placeholder{color:rgba(167,167,179,.85);}
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
+}/* === HOVER ANIMATIONS: ARTIST CARDS === */
+
+.artist-card {
+  position: relative;
+  transition: all 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* subtle red glow border effect */
+.artist-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(
+    circle at top left,
+    rgba(215, 38, 56, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* hover state */
+.artist-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  border-color: rgba(215, 38, 56, 0.4);
+}
+
+.artist-card:hover::before {
+  opacity: 1;
+}
+
+/* image zoom */
+.artist-image img {
+  transition: transform 0.4s ease;
+}
+
+.artist-card:hover .artist-image img {
+  transform: scale(1.08);
+}
+
+/* name accent */
+.artist-card:hover .artist-info h3 {
+  color: var(--accent);
+  transition: color 0.3s ease;
+}
+
+/* instagram link subtle motion */
+.artist-info a {
+  transition: all 0.25s ease;
+}
+
+.artist-card:hover .artist-info a {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+.artist-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.artist-card:hover::after {
+  opacity: 1;
 }
