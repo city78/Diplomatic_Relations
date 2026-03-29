@@ -610,3 +610,76 @@ input::placeholder{color:rgba(167,167,179,.85);}
 .artist-card:hover::after {
   opacity: 1;
 }
+/* === HOVER ANIMATIONS: CASE FILES === */
+
+.panel {
+  position: relative;
+  transition: all 0.35s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* subtle red dossier glow */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: radial-gradient(
+    circle at top right,
+    rgba(215, 38, 56, 0.2),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* hover lift */
+.panel:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(215, 38, 56, 0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+}
+
+.panel:hover::before {
+  opacity: 1;
+}
+
+/* title highlight */
+.panel h3 {
+  transition: color 0.3s ease;
+}
+
+.panel:hover h3 {
+  color: var(--accent);
+}
+
+/* link motion */
+.panel a {
+  transition: all 0.25s ease;
+}
+
+.panel:hover a {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.panel:hover::after {
+  opacity: 1;
+}
