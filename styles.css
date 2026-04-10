@@ -683,3 +683,6 @@ input::placeholder{color:rgba(167,167,179,.85);}
 .panel:hover::after {
   opacity: 1;
 }
+html {
+  scroll-behavior: smooth;
+}
