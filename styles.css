@@ -686,3 +686,8 @@ input::placeholder{color:rgba(167,167,179,.85);}
 html {
   scroll-behavior: smooth;
 }
+.status-live {
+  color: #00ff9c;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
